@@ -1,0 +1,32 @@
+<div class="header-block">
+    <img
+      id="app-logo"
+      width="100%"
+      alt="Henri Potier logo"
+      src="./assets/mainpage-logo3.png"
+    />
+    <img
+      width="10%"
+      height="10%"
+      src="./assets/HarryPotter.png"
+    />
+</div>
+<div class="layout-container">
+    <div class="row book-grid">
+        <div class="col-4" *ngFor="let book of books">
+            <div class="image-container">
+                <div class="book-image" [ngStyle]="{'background-image': 'url(' + book.cover + ')'}">
+                </div>
+                <div class="overlay">
+                    <div class="btn btn-dark" [routerLink]="['./book', book.isbn, book.title]">Voir la description</div>
+                    <div class="height-space"></div>
+                    <div class="btn btn-dark" (click)="addToCart(book)">Ajouter au panier</div>
+                </div>
+            </div>
+            <div class="book-details">
+                <div class="book-title">{{book.title}}</div>
+                <div class="book-price">{{book.price | currency :'EUR' }}</div>
+            </div>
+        </div>
+    </div>
+</div>

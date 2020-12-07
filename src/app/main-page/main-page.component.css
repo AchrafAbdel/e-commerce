@@ -1,0 +1,76 @@
+.header-block {
+    height: 50%;
+    width: 70%;
+    margin:auto;
+    margin-top: 10px;
+    border-color:black;
+    border-style:solid;
+    border-width: 0 0 5px;
+    display:table;
+}
+.layout-container {
+    max-width: 1140px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.book-grid {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.book-image {
+    padding-bottom: 150%;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 100%;
+    background-size:cover;
+    border-radius: 25px;
+}
+.image-container {
+    position: relative;
+}
+.image-container:hover .book-image{
+    opacity: 0.2;
+}
+.image-container:hover .overlay{
+    opacity: 1;
+}
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+.overlay .btn {
+    width: 160px;
+    line-height: 60px;
+    font-weight: 500;
+}
+.height-space {
+    height: 20px;
+}
+.book-details {
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.book-title {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-size: 0.9em;
+    line-height: 1.2;
+    font-weight: 500;
+    font-family: Roboto;
+}
+.book-price {
+    font-size: 1.14286em;
+    font-family: Roboto;
+}

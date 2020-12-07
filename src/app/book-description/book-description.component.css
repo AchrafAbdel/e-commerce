@@ -1,0 +1,66 @@
+.book-page-container {
+    width: 100%;
+    max-width: 1140px;
+    text-align: left;
+    padding: 100px 30px;
+    margin: auto;
+}
+.btn-primary,  .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+    color: white !important;
+    background-color: black !important;
+    border-color: black !important;
+}
+.btn-details {
+    display: inline-block;
+    letter-spacing: .1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: .85em;
+    margin-left: 5%;
+}
+
+.book-details-image {
+    padding-top: 150%;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 100%;
+    background-size:cover;
+    border-radius: 25px;
+}
+.book-title {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: .5em;
+    line-height: 1.2;
+    font-weight: 500;
+    font-family: Roboto;
+    margin:15px 0;
+    font-size:2.3em;
+}
+.book-price {
+    font-size:20px;
+    font-family: Roboto;
+    text-align: center;
+}
+.book-synopsis {
+    color: #7d7d7d;
+    margin:10px 0 10px 0;
+}
+.book-synopsis-title {
+    color: #7d7d7d;
+    margin:10px 0 10px 0;
+    font-family: Roboto;
+    text-decoration: solid;
+}
+.book-details-button {
+    padding:25px 0;
+    border-top: 1px solid #e4e4e4;
+    text-align: center;
+}
+.book-cart-button {
+    vertical-align: top;
+    margin-left:5px
+}
+.height-space {
+    height: 80px;
+}

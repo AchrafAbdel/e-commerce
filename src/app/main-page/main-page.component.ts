@@ -1,0 +1,37 @@
+import { BooksService } from './../services/books-service.service';
+import { Component, OnInit } from '@angular/core';
+import { Book } from '../models/book';
+import { ShoppingCartService } from '../services/shopping-cart.service';
+
+@Component({
+  selector: 'main-page',
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.css']
+})
+export class MainPageComponent implements OnInit {
+
+  public books:Array<Book>;
+  private sub;
+  constructor(
+       private booksService:BooksService,
+       private shoppingCartService:ShoppingCartService,
+    //    private router: Router
+  ) { }
+
+  ngOnInit() {
+      this.load();
+  }
+  load = () => {
+     this.sub = this.booksService.getBooks()
+          .subscribe((res : Response) => {
+              this.books = res as any;
+          })
+  };
+  addToCart = (book) => {
+      this.shoppingCartService.addToCart(book)      
+  };
+  ngOnDestroy() {
+      this.sub.unsubscribe();
+  }
+
+}

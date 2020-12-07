@@ -1,0 +1,26 @@
+<div *ngIf="book" class="book-page-container">
+    <div routerLink="/" class="btn btn-primary btn-details">
+        &#10094; Retour à l'accueil
+    </div>
+    <div class="height-space"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="book-details-image" [ngStyle]="{'background-image': 'url(' + book.cover + ')'}"></div>
+            <div class="book-price">Prix : {{book.price | currency :'EUR' }}</div>
+        </div>
+        <div class="col-md-8">
+            <div class="product-details-row">
+                <h1 class="book-title">{{book.title}}</h1>
+                <h4 class="book-synopsis-title">Résumé :</h4>
+                <div class="book-synopsis" *ngFor="let s of book.synopsis">
+                    <p>
+                        {{s}}
+                    </p>
+                </div>
+            </div>
+            <div class="book-details-button">
+                <div class="book-cart-button btn btn-dark" (click)="addToCart(book)">Ajouter au panier</div>
+            </div>
+        </div>
+    </div>   
+</div>

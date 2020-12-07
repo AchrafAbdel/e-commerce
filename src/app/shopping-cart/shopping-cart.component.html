@@ -1,0 +1,70 @@
+<div routerLink="/" class="home-button btn btn-primary btn-details">
+    &#10094; Retour à l'accueil
+</div>
+<div class="cart-page-container">
+    <div class="cart-page-header">
+        <h1>Votre panier</h1>
+    </div>
+    <div class="cart-page-content" *ngIf="shoppingCartList.length > 0">
+        <div class="cart-item-header cart-item-row">
+            <div class="cart-item-cell cart-item-product"><span>Livre</span></div>
+            <div class="cart-item-cell cart-item-price"><span>Prix</span></div>
+            <div class="cart-item-cell cart-item-action"><span>Action</span></div>
+        </div>
+        <div class="cart-item-row" *ngFor="let cart of shoppingCartList;let i = index">
+            <div class="cart-item-cell cart-item-product">
+                <div class="cart-item-info">
+                    <div class="cart-item-title">{{cart.title}}</div>
+                </div>
+            </div>
+            <div class="cart-item-cell cart-item-price">
+                <div class="item-price">
+                    {{cart.price | currency :'EUR' }}
+                </div>
+            </div>
+            <div class="cart-item-cell cart-item-action">
+                <div class="item-remove" (click)="removeFromCart(i)">Supprimer</div>
+            </div>
+        </div>
+        <div class="cart-total">
+            <div class="cart-total-row row">
+                <div class="col-7">
+                </div>
+                <div class="col-4 cart-total-label">
+                    total
+                </div>
+                <div [ngStyle]="newTotalPrice ? {'text-decoration' : 'line-through', 'color' : 'red'} : {}" class="col-1 cart-total-value cart-total-price">
+                    {{totalPrice | currency :'EUR'}}
+                </div>
+            </div>
+            <div *ngIf="newTotalPrice" class="cart-total-row row">
+                <div class="col-7">
+                </div>
+                <div class="col-4 cart-total-label-promotion">
+                    total après reduction
+                </div>
+                <div class="col-1 cart-total-value cart-total-price">
+                    {{newTotalPrice | currency :'EUR'}}
+                </div>
+            </div>
+            <div class="cart-total-row row">
+                <div class="col-7">
+                </div>
+                <div class="col-4 cart-total-label">
+                    Frais de livraison
+                </div>
+                <div style="font-size: .6em;" class="col-1 cart-total-value cart-total-price">
+                    (Gratuit)
+                </div>
+            </div>
+        </div>
+        <div class="cart-buttons">
+            <div class="continue-shopping"><a routerLink="/">Continuez vos achats</a></div>
+            <div class="checkout-button btn btn-dark btn-large">Procéder au paiement ({{(newTotalPrice ? newTotalPrice : totalPrice) | currency :'EUR'}})</div>
+        </div>
+    </div>
+    <div class="cart-page-content" *ngIf="shoppingCartList.length == 0">
+        <h4>Votre panier est vide.</h4>
+        <a routerLink="/">Continuez vos achats</a>
+    </div>
+</div>
