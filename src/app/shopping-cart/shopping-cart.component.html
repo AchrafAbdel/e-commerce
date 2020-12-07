@@ -33,7 +33,7 @@
                 <div class="col-4 cart-total-label">
                     total
                 </div>
-                <div [ngStyle]="newTotalPrice ? {'text-decoration' : 'line-through', 'color' : 'red'} : {}" class="col-1 cart-total-value cart-total-price">
+                <div [ngStyle]="newTotalPrice ? {'text-decoration' : 'line-through'} : {}" class="col-1 cart-total-price">
                     {{totalPrice | currency :'EUR'}}
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="col-4 cart-total-label-promotion">
                     total après reduction
                 </div>
-                <div class="col-1 cart-total-value cart-total-price">
+                <div id="newPrice" class="col-1 cart-total-new-price">
                     {{newTotalPrice | currency :'EUR'}}
                 </div>
             </div>

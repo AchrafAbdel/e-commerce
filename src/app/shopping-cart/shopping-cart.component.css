@@ -88,6 +88,9 @@
 .cart-total-price {
     color:black;
 }
+.cart-total-new-price{
+    color : red;
+}
 
 .cart-buttons {
     padding:20px 0;
@@ -146,6 +149,7 @@
         padding-bottom: 15px;
     }
     .cart-item-price,
+    .cart-total-new-price,
     .cart-item-action {
         text-align: right;
     }

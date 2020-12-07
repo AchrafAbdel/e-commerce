@@ -5,7 +5,5 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 * {
     cursor: url(./assets/cursor.cur), auto;
- }
- * {
     outline:none !important;
-}
+ }
