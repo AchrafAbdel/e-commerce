@@ -45,7 +45,7 @@ export class ShoppingCartComponent implements OnInit {
   };
   applyPromotion(){
     if (this.idBooks){
-      this.idBooks = this.idBooks.slice(0, -1); 
+      this.idBooks = this.idBooks.slice(0, -1);
       this.http.get('http://henri-potier.xebia.fr/books/' + this.idBooks + '/commercialOffers')
       .subscribe(res => {
         let promotion = res as any;
@@ -64,7 +64,7 @@ export class ShoppingCartComponent implements OnInit {
         numbers[i] = price - array[i].value;
       }
       if (array[i].type === 'slice') {
-        numbers[i] = price - Math.floor(price/100) * array[i].value;
+        numbers[i] = price - Math.floor(price/array[i].sliceValue) * array[i].value;
       }
     }
     return Math.min.apply(null,numbers);
