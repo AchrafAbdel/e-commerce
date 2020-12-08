@@ -7,6 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 I published my repo in GitHub Pages, but since I'm using an HTTP api, The website doesn't work properly, due to access control checks in prod environment.
 => [Lien vers la Demo](https://achrafabdel.github.io/e-commerce/)
 
+PS : Le site a été testé sur Safari, il pourrait y avoir des différences sur les autres navigateurs.
+
 <img width="600" height="auto" alt="main-page" src="https://user-images.githubusercontent.com/43424266/101432013-5d229080-3908-11eb-93dc-35d3760753a5.png">
 <img width="600" height="auto" alt="Screenshot 2020-12-08 at 03 39 59" src="https://user-images.githubusercontent.com/43424266/101432024-61e74480-3908-11eb-866d-67723daea1c2.png">
 <img width="600" height="auto" alt="Screenshot 2020-12-08 at 03 41 14" src="https://user-images.githubusercontent.com/43424266/101432027-63187180-3908-11eb-8a94-5b7c9fe4f406.png">
