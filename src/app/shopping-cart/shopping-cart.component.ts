@@ -46,14 +46,18 @@ export class ShoppingCartComponent implements OnInit {
   applyPromotion(){
     if (this.idBooks){
       this.idBooks = this.idBooks.slice(0, -1);
-      this.http.get('http://henri-potier.xebia.fr/books/' + this.idBooks + '/commercialOffers')
-      .subscribe(
-        res => {
-          let promotion = res as any;
-          this.newTotalPrice = this.choosePromotion(promotion.offers, this.totalPrice); 
-        },
-        error => console.log(error)
-      );
+      this.http.get(
+        'http://henri-potier.xebia.fr/books/' + this.idBooks + '/commercialOffers', {
+          headers : {
+            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+          }
+        }).subscribe(
+          res => {
+            let promotion = res as any;
+            this.newTotalPrice = this.choosePromotion(promotion.offers, this.totalPrice); 
+          },
+          error => console.log(error)
+        );
     }
   }
 
