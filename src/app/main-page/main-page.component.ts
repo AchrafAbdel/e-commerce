@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { BooksService } from './../services/books-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
@@ -16,7 +15,6 @@ export class MainPageComponent implements OnInit {
   constructor(
        private booksService:BooksService,
        private shoppingCartService:ShoppingCartService,
-    //    private router: Router
   ) { }
 
   ngOnInit() {
