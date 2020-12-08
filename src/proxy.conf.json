@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://henri-potier.xebia.fr/books",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

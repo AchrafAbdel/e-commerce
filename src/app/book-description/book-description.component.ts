@@ -28,10 +28,13 @@ export class BookDescriptionComponent implements OnInit {
   }
   getBook = (id) => {
       this.sub = this.bookservice.getBooks()
-          .subscribe((res: Response)  => {
-            this.books = res as any;
-            this.book = this.books.find(b => b.isbn === id);
-          })
+          .subscribe(
+            (res: Response)  => {
+              this.books = res as any;
+              this.book = this.books.find(b => b.isbn === id);
+            },
+            error => console.log(error)
+          )
   };
     addToCart = (book) => {
         this.shoppingCartService.addToCart(book);

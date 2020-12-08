@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { BooksService } from './../services/books-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
@@ -23,9 +24,10 @@ export class MainPageComponent implements OnInit {
   }
   load = () => {
      this.sub = this.booksService.getBooks()
-          .subscribe((res : Response) => {
-              this.books = res as any;
-          })
+          .subscribe(
+            (res : Response) => this.books = res as any,
+            error => console.log(error)
+          );
   };
   addToCart = (book) => {
       this.shoppingCartService.addToCart(book)      
