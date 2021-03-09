@@ -26,18 +26,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: '', 
+        path: '',
         component: MainPageComponent
-      },{
+      }, {
         path: 'book/:id/:title',
         component: BookDescriptionComponent
-      },{
+      }, {
         path: 'shopping-cart',
         component: ShoppingCartComponent
-      },{
+      }, {
         path: '**',
         component: PageNotFoundComponent
-      }  
+      }
     ])
   ],
   providers: [],

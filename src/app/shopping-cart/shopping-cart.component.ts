@@ -10,12 +10,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  public shoppingCartList:Book[];
+  public shoppingCartList: Book[];
   public totalPrice: number;
   public newTotalPrice: number;
   public idBooks: string;
-  public promotionValue : number;
-  constructor(protected cartService: ShoppingCartService,public http:HttpClient) {
+  public promotionValue: number;
+  constructor(protected cartService: ShoppingCartService, public http: HttpClient) {
     this.loadCart();
     this.applyPromotion();
   }
@@ -29,22 +29,20 @@ export class ShoppingCartComponent implements OnInit {
         this.shoppingCartList = res;
         let total = 0;
         this.idBooks = '';
-        for(let cart of this.shoppingCartList) {
+        for (const cart of this.shoppingCartList) {
             total += cart.price;
             this.idBooks += cart.isbn + ',';
         }
         this.totalPrice = total;
         this.newTotalPrice = total;
       });
-      
-  };
+  }
   removeFromCart = index => {
     this.cartService.removeCart(index);
     this.applyPromotion();
-    
-  };
-  applyPromotion(){
-    if (this.idBooks){
+  }
+  applyPromotion() {
+    if (this.idBooks) {
       this.idBooks = this.idBooks.slice(0, -1);
       this.http.get(
         'http://henri-potier.xebia.fr/books/' + this.idBooks + '/commercialOffers', {
@@ -53,27 +51,27 @@ export class ShoppingCartComponent implements OnInit {
           }
         }).subscribe(
           res => {
-            let promotion = res as any;
-            this.newTotalPrice = this.choosePromotion(promotion.offers, this.totalPrice); 
+            const promotion = res as any;
+            this.newTotalPrice = this.choosePromotion(promotion.offers, this.totalPrice);
           },
           error => console.log(error)
         );
     }
   }
 
-  choosePromotion(array, price:number){
-    let numbers= new Array<number>(3);
-    for (let i=0; i< array.length; i++){
+  choosePromotion(array, price: number) {
+    const numbers = new Array<number>(3);
+    for (let i = 0; i < array.length; i++) {
       if (array[i].type === 'percentage') {
-        numbers[i] = price - ( price * array[i].value * 1/100);
+        numbers[i] = price - ( price * array[i].value * 1 / 100);
       }
       if (array[i].type === 'minus') {
         numbers[i] = price - array[i].value;
       }
       if (array[i].type === 'slice') {
-        numbers[i] = price - Math.floor(price/array[i].sliceValue) * array[i].value;
+        numbers[i] = price - Math.floor(price / array[i].sliceValue) * array[i].value;
       }
     }
-    return Math.min.apply(null,numbers);
+    return Math.min.apply(null, numbers);
   }
 }

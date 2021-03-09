@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class BooksService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  public getBooks(){
+  public getBooks() {
     return this.http.get(
       'http://henri-potier.xebia.fr/books', {
       headers : {
